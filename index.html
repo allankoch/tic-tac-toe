@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico">
+
+    <!-- Vue -->
+    <!-- development -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- production -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!-- Http Vue Loader -->
+    <script src="https://unpkg.com/http-vue-loader"></script>
+
+    <!-- Vuex -->
+    <script src="https://unpkg.com/vuex@3.0.1/dist/vuex.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="./firebase.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./app.css"/>
+
+    <title>Tic Tac Toe</title>
+  </head>
+  <body>
+
+    <noscript>
+      <strong>Don't be a loser. Enable Javascript!</strong>
+    </noscript>
+
+    <div id="app">
+      <ttt-header></ttt-header>
+      <ttt-main-top></ttt-main-top>
+      <ttt-main-bottom></ttt-main-bottom>
+      <ttt-aside></ttt-aside>
+      <ttt-footer></ttt-footer>
+    </div>
+
+    <!--<script src="./store/store.js"></script>-->
+    <script src="./app.js"></script>
+
+  </body>
+</html>

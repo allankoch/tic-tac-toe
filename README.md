@@ -1,2 +1,2 @@
 # tic-tac-toe
-Vue + Vuex + Firebase
+Vue + Vuex + HttpVueLoader + Firebase

@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header { grid-area: header; }
+.main-top {grid-area: main-top; }
+.main-bottom {grid-area: main-bottom; }
+aside {grid-area: aside; }
+footer {grid-area: footer; }
+
+#app {
+  display: grid;
+  grid-gap: 0px;
+  grid-template-areas:
+    'header header'
+    'main-top aside'
+    'main-bottom aside'
+    'footer footer';
+  grid-template-columns: auto 300px;
+  grid-template-rows: 50px 1fr 200px 30px;
+  min-height: 100vh;
+}
