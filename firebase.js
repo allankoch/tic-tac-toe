@@ -1,3 +1,4 @@
+// init firebase
 let config = {
   apiKey: "AIzaSyCcuqzoIqXnvLG0Ryk_hpTRwUZWf1dc_ms",
   authDomain: "tic-tac-toe-e866e.firebaseapp.com",
@@ -6,9 +7,19 @@ let config = {
   storageBucket: "tic-tac-toe-e866e.appspot.com",
   messagingSenderId: "336525690370"
 };
-
 firebase.initializeApp(config);
 
-let firebaseDatabaseRef = firebase.database();
-//let firebaseMessagesRef = firebase.database().ref('messages');
-//let firebasePeopleRef = firebase.database().ref('people');
+// authentication
+var provider = new firebase.auth.GoogleAuthProvider();
+firebase.auth().languageCode = 'da';
+
+// helpers
+let firebaseHelper = {
+  refs: {
+    database: firebase.database(),
+    people: firebase.database().ref('people'),
+    messages: firebase.database().ref('messages'),
+    player1Id: firebase.database().ref('player1_uid'),
+    player2Id: firebase.database().ref('player2_uid')
+  }
+};

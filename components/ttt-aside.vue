@@ -1,23 +1,36 @@
 <template>
   <aside>
-    <h3>Spectators</h3>
+    <h3>People</h3>
+
     <ul>
-      <li>Allan</li>
-      <li>Rene</li>
-      <li>Morten</li>
+      <li v-for="person in getPeople()">
+        {{ person.displayName }}
+      </li>
     </ul>
-    <hr>
-    <ttt-aside-player :name="'Allan'" :player-id="1"></ttt-aside-player>
-    <hr>
-    <ttt-aside-player :name="'Rene'" :player-id="2"></ttt-aside-player>
+
+    <ttt-aside-player
+    v-for="player in getPlayers()"
+    :key="player.id"
+    :data="player.data"
+    :name="player.data.displayName"
+    :player-id="player.id"></ttt-aside-player>
+
   </aside>
 </template>
 
 <script>
   module.exports = {
     methods: {
-      test() {
-        alert('testing');
+      getPeople() {
+        return app.$store.getters.people;
+      },
+      getPlayers() {
+        var p1 = app.$store.getters.getPlayer(1);
+        var p2 = app.$store.getters.getPlayer(2);
+        var list = [];
+        if (p1 != null) list.push({ id: 1, data: p1 });
+        if (p2 != null) list.push({ id: 2, data: p2 });
+        return list;
       }
     },
     components: {

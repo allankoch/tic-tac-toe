@@ -1,7 +1,7 @@
 Vue.config.devtools = true;
 
-new Vue({
-  //store: store,
+var app = new Vue({
+  store: store,
   el: '#app',
   components: {
     'ttt-aside': httpVueLoader('./components/ttt-aside.vue'),
@@ -11,7 +11,17 @@ new Vue({
     'ttt-main-bottom': httpVueLoader('./components/ttt-main-bottom.vue')
   },
   created: function() {
-    //this.$store.dispatch('getFirebasePeople');
-    //this.$store.dispatch('getFirebaseMessages');
+    // detect if user is logged in
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        app.$store.dispatch('login', user);
+      } else {
+        // No user is signed in.
+      }
+    });
+
+    // init state from firebase
+    this.$store.dispatch('initStateFromFirebase');
   }
 });
