@@ -1,0 +1,9 @@
+{
+    "type": "sftp",
+    "host": "allankoch.dk",
+    "username": "ak",
+    "password": "theraven900",
+    "port": 22,
+    "remotePath": "/home/ak/projects/tictactoe.allankoch.dk/public",
+    "uploadOnSave": true
+}
