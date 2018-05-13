@@ -115,6 +115,14 @@ const store = new Vuex.Store({
     },
     removeSelf: state => {
       firebaseHelper.refs.people.child(state.currentUser.uid).remove();
+    },
+    addChatMessage: (state, payload) => {
+      var name = state.currentUser.displayName;
+      var msg = firebaseHelper.refs.messages.push();
+      msg.set({
+        displayName: name,
+        message: payload
+      });
     }
   },
   actions: {
@@ -139,6 +147,9 @@ const store = new Vuex.Store({
       firebaseHelper.refs.messages.on("value", function (snapshot) {
         context.commit('setMessages', snapshot.val());
       });
+    },
+    addChatMessage: (context, payload) => {
+      context.commit('addChatMessage', payload);
     }
   }
 });
